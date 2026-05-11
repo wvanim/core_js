@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WvAnim core_js</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #081122;
+        --panel: rgba(8, 17, 34, 0.82);
+        --text: #f7fafc;
+        --muted: #cbd5e1;
+        --accent: #38bdf8;
+        --accent-soft: rgba(56, 189, 248, 0.18);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: Arial, Helvetica, sans-serif;
+        background:
+          radial-gradient(circle at top, rgba(56, 189, 248, 0.25), transparent 35%),
+          linear-gradient(180deg, #0f172a, #020617);
+        color: var(--text);
+        display: grid;
+        place-items: center;
+        padding: 24px;
+      }
+
+      .app {
+        width: min(960px, 100%);
+        background: var(--panel);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: 24px;
+        padding: 24px;
+        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.4);
+      }
+
+      .app h1 {
+        margin-top: 0;
+        margin-bottom: 8px;
+      }
+
+      .app p {
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      .controls {
+        display: flex;
+        gap: 12px;
+        margin: 24px 0;
+      }
+
+      button {
+        border: 0;
+        border-radius: 999px;
+        padding: 12px 18px;
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .primary {
+        background: var(--accent);
+        color: #082f49;
+      }
+
+      .secondary {
+        background: var(--accent-soft);
+        color: var(--text);
+      }
+
+      .stage {
+        position: relative;
+        overflow: hidden;
+        min-height: 380px;
+        border-radius: 20px;
+        background:
+          linear-gradient(180deg, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.35)),
+          #020617;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+      }
+
+      .face {
+        position: absolute;
+        transition: opacity 160ms linear;
+      }
+
+      .face.card {
+        top: 48px;
+        left: 48px;
+        max-width: 360px;
+        padding: 24px;
+        border-radius: 18px;
+        background: rgba(15, 23, 42, 0.92);
+        border: 1px solid rgba(148, 163, 184, 0.22);
+        box-shadow: 0 20px 40px rgba(15, 23, 42, 0.25);
+      }
+
+      .face.card h2 {
+        margin: 0 0 12px;
+        font-size: 2rem;
+      }
+
+      .face.card p {
+        margin: 0 0 16px;
+      }
+
+      .badge {
+        display: inline-block;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: #bae6fd;
+        padding: 6px 10px;
+        font-size: 0.85rem;
+        font-weight: 700;
+      }
+
+      .face.orb {
+        top: 210px;
+        left: 60px;
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        background:
+          radial-gradient(circle at 30% 30%, #e0f2fe, #38bdf8 40%, #0f172a 80%);
+        box-shadow:
+          0 0 40px rgba(56, 189, 248, 0.4),
+          inset -12px -12px 24px rgba(8, 47, 73, 0.45);
+      }
+
+      .face.panel {
+        right: 48px;
+        top: 56px;
+        width: min(320px, calc(100% - 96px));
+        padding: 20px;
+        border-radius: 18px;
+        background: rgba(15, 23, 42, 0.92);
+        border: 1px solid rgba(148, 163, 184, 0.22);
+      }
+
+      .face.panel ul {
+        margin: 16px 0 0;
+        padding-left: 20px;
+        color: var(--muted);
+      }
+
+      .timeline {
+        margin-top: 18px;
+        height: 8px;
+        border-radius: 999px;
+        background: rgba(148, 163, 184, 0.18);
+        overflow: hidden;
+      }
+
+      .timeline > div {
+        height: 100%;
+        width: 0;
+        background: linear-gradient(90deg, #38bdf8, #22d3ee);
+      }
+
+      .footnote {
+        margin-top: 16px;
+        font-size: 0.92rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="app">
+      <h1>WvAnim: Piece / Face demo</h1>
+      <p>
+        A lightweight HTML scenario where <strong>Pieces</strong> drive time and
+        <strong>Faces</strong> own space. The demo keeps both responsibilities
+        separate while showing how a Face can stay interactive.
+      </p>
+
+      <div class="controls">
+        <button id="play" class="primary" type="button">Play scenario</button>
+        <button id="reset" class="secondary" type="button">Reset</button>
+      </div>
+
+      <section id="stage" class="stage" aria-label="WvAnim stage"></section>
+
+      <p class="footnote">
+        Open the browser console to inspect the exported <code>Face</code>,
+        <code>Piece</code> and <code>Scenario</code> classes.
+      </p>
+    </main>
+
+    <script src="./core.js"></script>
+  </body>
+</html>
