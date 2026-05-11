@@ -63,6 +63,7 @@
       this.startTime = 0;
       this.frameId = 0;
       this.playing = false;
+      this.tick = this.tick.bind(this);
 
       this.faces.forEach((face) => {
         face.mount(this.stage);
@@ -70,7 +71,7 @@
       });
     }
 
-    tick = (timestamp) => {
+    tick(timestamp) {
       if (!this.playing) {
         return;
       }
@@ -90,7 +91,7 @@
       }
 
       this.frameId = window.requestAnimationFrame(this.tick);
-    };
+    }
 
     play() {
       if (this.playing) {
