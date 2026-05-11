@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>WvAnim / Tispi — Groupes animés imbriqués</title>
+  <style>
+    body {
+      background: #1a1a1a;
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    .label {
+      color: white;
+      font-size: 14px;
+      padding: 6px;
+    }
+  </style>
+</head>
+
+<body>
+<script src="tispi001.js"></script>
+<script src="tispiGroup.js"></script>
+
+<!-- ========================================================= -->
+<!-- GROUPE NIVEAU 1 : animé                                  -->
+<!-- ========================================================= -->
+<div id="GroupLevel1">
+  <script>
+    new TsiPiece(o_.div(),
+      [ ["clock"],
+        ["face", 0, "GroupLevel1Face"],
+        ["pos",  0, [60, 60], 120, [420, 80], 240, [60, 60]],
+        ["bgColor", 0, "#333366", 60, "white", 120, "#663333", 240, "#333366"]
+      ]);
+  </script>
+
+  <div id="GroupLevel1Face" style="width:520px; height:360px;">
+    <script>new TsiGroup(o_.div());</script>
+
+    <!-- ===================================================== -->
+    <!-- PIECE 1 dans Groupe niveau 1                          -->
+    <!-- ===================================================== -->
+    <div id="Piece_L1_A">
+      <script>
+        new TsiPiece(o_.div(),
+          [ ["clock"],
+            ["face", 0, "Face_L1_A"],
+            ["pos",  0, [20, 30], 90, [260, 30], 450, [20, 30]],
+            ["bgColor", 0, "royalblue", 90, "cyan", 450, "royalblue"]
+          ]);
+      </script>
+
+      <div id="Face_L1_A" style="width:120px; height:60px;">
+        <script>new TsiFace(o_.div());</script>
+        <div class="label">L1 — Piece A</div>
+      </div>
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- PIECE 2 dans Groupe niveau 1                          -->
+    <!-- ===================================================== -->
+    <div id="Piece_L1_B">
+      <script>
+        new TsiPiece(o_.div(),
+          [ ["face", 0, "Face_L1_B"],
+            ["pos",  0, [20, 120], 90, [320, 180], 180, [20, 120]],
+            ["bgColor", 0, "darkorange", 90, "yellow", 180, "darkorange"]
+          ]);
+      </script>
+
+      <div id="Face_L1_B" style="width:140px; height:70px;">
+        <script>new TsiFace(o_.div());</script>
+        <div class="label">L1 — Piece B</div>
+      </div>
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- GROUPE NIVEAU 2 : animé, contenu dans niveau 1        -->
+    <!-- ===================================================== -->
+    <div id="GroupLevel2">
+      <script>
+        new TsiPiece(o_.div(),
+          [ ["face", 0, "GroupLevel2Face"],
+            ["pos",  0, [120, 230], 120, [260, 230], 240, [120, 230]],
+            ["bgColor", 0, "#225522", 120, "#552255", 240, "#225522"]
+          ]);
+      </script>
+
+      <div id="GroupLevel2Face" style="width:230px; height:110px;">
+        <script>new TsiGroup(o_.div());</script>
+
+        <!-- ================================================= -->
+        <!-- PIECE 1 dans Groupe niveau 2                      -->
+        <!-- ================================================= -->
+        <div id="Piece_L2_A">
+          <script>
+            new TsiPiece(o_.div(),
+              [ ["clock"],
+                ["face", 0, "Face_L2_A"],
+                ["pos",  0, [10, 15], 80, [110, 15], 160, [10, 15]],
+                ["bgColor", 0, "green", 80, "lime", 160, "green"]
+              ]);
+          </script>
+
+          <div id="Face_L2_A" style="width:80px; height:35px;">
+            <script>new TsiFace(o_.div());</script>
+            <div class="label">L2 A</div>
+          </div>
+        </div>
+
+        <!-- ================================================= -->
+        <!-- PIECE 2 dans Groupe niveau 2                      -->
+        <!-- ================================================= -->
+        <div id="Piece_L2_B">
+          <script>
+            new TsiPiece(o_.div(),
+              [ ["face", 0, "Face_L2_B"],
+                ["pos",  0, [10, 60], 80, [130, 60], 160, [10, 60]],
+                ["bgColor", 0, "purple", 80, "magenta", 160, "purple"]
+              ]);
+          </script>
+
+          <div id="Face_L2_B" style="width:80px; height:35px;">
+            <script>new TsiFace(o_.div());</script>
+            <div class="label">L2 B</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  o_.start();
+</script>
+
+</body>
+</html>

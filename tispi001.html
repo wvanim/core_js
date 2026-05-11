@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Tispi — Étape 3</title>
+  <style>
+    body {
+      background: #1a1a1a;
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+<script src="tispi001.js"></script>
+
+<div id="pieceName">
+  <script>
+    new TsiPiece(o_.div(),
+      [ ["clock"],
+        ["face", 0, "rect0", 100, "im0", 200],
+        ["pos",  0, [800, 100], 100, [300, 200], 150, [0, 500]],
+        ["bgColor", 0, "blue", 100, "green", 110, "cyan", 120, "yellow", 130, "white"]
+      ]);
+  </script>
+  <div id="rect0" style="width:200px; height:100px">
+    <script>
+      new TsiFace(o_.div());
+    </script>
+  </div>
+  <div id="rect1" style="width:300px; height:150px">
+    <script>
+      new TsiFace(o_.div());
+    </script>
+  </div>
+  <div id="im0">
+    <script>
+      new TsiFace(o_.div());
+    </script>
+    <img src="sagesse.jpg">
+  </div>
+  
+</div>
+
+
+
+<div id="pieceName2">
+  <script>
+    new TsiPiece(o_.div(),
+      [ ["clock"],
+        ["face", 0, "rect2", 100, "im1", 200],
+        ["pos",  0, [800, 300], 100, [300, 400], 150, [0, 700]],
+        ["bgColor", 0, "blue", 100, "green", 110, "cyan", 120, "yellow", 130, "white"]
+      ]);
+  </script>
+  <div id="rect2" style="width:200px; height:100px">
+    <script>
+      new TsiFace(o_.div());
+    </script>
+  </div>
+  <div id="rect3" style="width:300px; height:150px">
+    <script>
+      new TsiFace(o_.div());
+    </script>
+  </div>
+  <div id="im1">
+    <script>
+      new TsiFace(o_.div());
+    </script>
+    <img src="sagesse.jpg">
+  </div>
+  
+</div>
+
+
+
+
+
+<script>
+  o_.start();
+</script>
+
+</body>
+</html>
+
+/*
+linear-gradient(-126deg, rgb(36, 234, 75), rgb(151, 179, 66), rgb(134, 4, 6), rgb(131, 109, 212)) 0px 0px / 100% 100%;100% 100%;
+*/
