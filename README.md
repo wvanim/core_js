@@ -1,6 +1,12 @@
 # core_js
 Programmation JS de WvAnim
 
+---
+
+The fundamental rules of Time/Space Interleaved processing are implemented in this script.
+
+---
+
 // wvanim.js
 
 /**
